@@ -1,0 +1,105 @@
+/* Constants for app width & height */
+@app-width : 400px;
+@outer-grid-columns : 5;
+@outer-grid-column-width : 100/@outer-grid-columns;
+@inner-grid-columns : 4;
+@inner-grid-column-width : 100/@inner-grid-columns;
+.top-container {
+	width : @app-width;
+	box-shadow:5px 5px 10px lightgray;
+	margin:10px 0px 0px 10px;
+	.display {
+		height : 60px;
+		.result{
+			width:388px;
+			height:48px;
+			padding:5px;
+			border:1px solid gray;
+			border-radius:5px;
+			background-color:#EFEFEF;
+			text-align:right;
+			margin:auto;
+			font-size:2em;
+		}
+	}
+	.btn-container {
+		width : 100%;
+        background-color:#EFEFEF;
+        .row:before, 
+    	.row:after {
+	        content:"";
+	        display: table;
+	        clear:both;
+	    }
+	    [class*='col-'] {
+	        float: left;
+	        min-height: 1px; 
+	        width: @outer-grid-column-width;
+	        a{
+	        	height:106px;
+	        	line-height:106px;
+	        }
+	    }
+	    [class*='inner-col-'] {
+	        float: left;
+	        min-height: 1px; 
+	        width: @inner-grid-column-width;
+	        a{
+	        	height:50px;
+	        	line-height:50px;
+	        }
+	    }
+        a {
+        	border:1px solid #3F8CF5;
+        	background-color: #3F8CF5;
+        	display:block;
+        	text-align:center;
+        	padding:0px;
+        	margin:2px;
+        	font-size:2.0em;
+        	font-weight:bold;
+        	font-family:sans-serif;
+        	transition: background-color 0.5s ease;
+        	-webkit-transition: background-color 0.5s ease;
+        	height:50px;
+        	cursor:pointer;
+        	line-height:50px;
+        	&:hover{
+        		background-color:#EFEFEF;
+        		border:1px solid gray;
+        	}
+        }
+	    .col-1{ width: 20%; }
+        .col-2{ width: 40%; }
+	    .col-3{ width: 60%; }
+	    .col-4{ width: 80%; }
+	    .col-5{ width: 100%; }
+	    .inner-col-1{ width: 25%; }
+        .inner-col-2{ width: 50%; }
+	    .inner-col-3{ width: 70%; }
+	    .inner-col-4{ width: 100%; }
+	}
+}
+@media screen and (max-width : 500px){
+	.top-container {
+		width : 92vw;
+		margin:50px 0px 0px 5px;
+		overflow-x:hidden;
+		.display {
+			.result{
+				width:92vw;
+				height:48px;
+				font-size:1.5em;
+				padding:0px;
+			}
+		}
+		.btn-container {
+			width:92vw;
+			[class*='col-'], [class*='inner-col-']{
+				a {
+					font-size:1.5em;
+				}
+			}
+		}
+	}
+}
